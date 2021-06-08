@@ -1,1 +1,13 @@
-<p>detail works!</p>
+<nb-card accent="info" status="success">
+    <nb-card-header>
+        Profil de : {{currentFan.nom}}
+    </nb-card-header>
+    <nb-card-body>
+        Date de naissance : {{currentFan.dateNaissance | date : 'dd MMMM yyyy'}}
+        <nb-list *ngIf="currentFan.series">
+            <nb-list-item *ngFor="let s of currentFan.series; let i = index">
+                {{i+1}} - {{s}}
+            </nb-list-item>
+        </nb-list>
+    </nb-card-body>
+</nb-card>

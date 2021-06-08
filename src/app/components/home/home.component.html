@@ -1,1 +1,14 @@
-<p>home works!</p>
+<nb-card status="info">
+    <nb-card-header>
+        <h3>Liste des fans</h3>
+    </nb-card-header>
+    <nb-card-body>
+        <nb-list>
+            <nb-list-item *ngFor="let fan of fanListe; let i = index">
+                <a [routerLink]="['/detail/'+i]">{{fan.nom}}</a> &nbsp;
+                <button nbButton status="info" (click)="toUpdate(i)" size="small">Update</button>&nbsp;
+                <button nbButton status="danger" (click)="toDelete(i)" size="small">X</button>&nbsp;
+            </nb-list-item>
+        </nb-list>
+    </nb-card-body>
+</nb-card>

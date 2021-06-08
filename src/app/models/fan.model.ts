@@ -1,5 +1,5 @@
 export interface Fan {
-    nom : string;
+    nom? : string;
     dateNaissance : Date;
     series? : string[]
 }

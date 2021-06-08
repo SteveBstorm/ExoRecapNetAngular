@@ -1,1 +1,26 @@
-<p>update works!</p>
+<h3>Mise à jour des infos de : {{currentFan.nom}}</h3>
+<form [formGroup]="fg" (ngSubmit)="submitForm()">
+    <p>
+        <label>Nom : </label>
+        <input nbInput formControlName="nom" />
+    </p>
+    <p>
+        <label>Date de naissance : </label>
+        <input [nbDatepicker]="date" nbInput formControlName="dateNaiss" />
+        <nb-datepicker #date></nb-datepicker>
+    </p>
+    <div *ngIf="fg.controls['dateNaiss'].invalid" style="color : red">
+        {{fg.controls['dateNaiss'].errors ? fg.controls['dateNaiss'].errors['dateError'] : ''}}
+    </div>
+
+    <button type="button" (click)="addSerie()" nbButton size="tiny">Ajouter une série</button>
+
+    <nb-list *ngIf="getSeries().controls" formArrayName="series">
+        <nb-list-item *ngFor="let c of getSeries().controls; let i = index">
+            Série {{i+1}} <input [status]="c.touched ? 'success' : 'warning'" nbInput type="text" [formControlName]="i">
+            &nbsp; <button nbButton status="danger" (click)="removeSerie(i)">X</button>
+        </nb-list-item>
+    </nb-list>
+
+    <button nbButton status="success" type="submit" [disabled]="fg.invalid">Valider</button>
+</form>

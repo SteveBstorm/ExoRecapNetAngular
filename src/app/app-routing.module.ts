@@ -4,13 +4,14 @@ import { DetailComponent } from './components/detail/detail.component';
 import { HomeComponent } from './components/home/home.component';
 import { NewComponent } from './components/new/new.component';
 import { UpdateComponent } from './components/update/update.component';
+import { FanResolver } from './services/fanResolver.service';
 
 const routes: Routes = [
   { path : '', redirectTo : 'home', pathMatch : 'full'},
   { path : 'home', component : HomeComponent},
   { path : 'new', component : NewComponent},
   { path : 'detail/:id', component : DetailComponent},
-  { path : 'update/:id', component : UpdateComponent}
+  { path : 'update/:id', resolve : {fan : FanResolver}, component : UpdateComponent}
 ];
 
 @NgModule({

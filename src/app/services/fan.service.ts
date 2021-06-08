@@ -7,7 +7,9 @@ import { Fan } from '../models/fan.model';
 })
 export class FanService {
 
-  private fanList : Fan[] = []
+  private fanList : Fan[] = [
+    { nom : "test", dateNaissance : new Date(), series : []}
+  ]
 
   constructor(
     private _router : Router

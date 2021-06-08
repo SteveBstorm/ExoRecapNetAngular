@@ -12,6 +12,7 @@ import { NewComponent } from './components/new/new.component';
 import { UpdateComponent } from './components/update/update.component';
 import { DetailComponent } from './components/detail/detail.component';
 import { HomeComponent } from './components/home/home.component';
+import { ConfirmBoxComponent } from './tools/confirm-box/confirm-box.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HomeComponent } from './components/home/home.component';
     NewComponent,
     UpdateComponent,
     DetailComponent,
-    HomeComponent
+    HomeComponent,
+    ConfirmBoxComponent
   ],
   imports: [
     BrowserModule,
